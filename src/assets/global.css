@@ -2,8 +2,8 @@
     --primary: #f7f7f7;
     --primary-light: #ffffff;
     --primary-dark: #eaeaea;
-    /* green */
-    --accent: #00cc88;
+
+    --accent: #0096FF;
 
     --text: #080808;
     --subtext: #363636;
@@ -35,6 +35,10 @@ header {
     justify-content: space-between;
 }
 
+header > div {
+    display: flex;
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -62,13 +66,13 @@ header {
 .input-container {
     position: fixed;
     bottom: 0;
-    
+
     display: grid;
     place-items: center;
 
     background: var(--primary);
     border-top: 1px solid var(--primary-dark);
-    
+
     width: 100%;
     padding: 1rem;
 }
@@ -77,7 +81,7 @@ header {
     width: 100%;
     max-width: 600px;
     height: 48px;
-    
+
     border: 1px solid var(--primary-dark);
     border-radius: 8px;
     background: var(--primary-light);
@@ -112,11 +116,12 @@ button {
     justify-content: center;
 
     cursor: pointer;
+    transition: 0.2s;
 }
 
-#send {
-    background: var(--accent);
-    border-radius: 0px 8px 8px 0px;
+button:hover {
+    background: var(--primary-dark);
+    
 }
 
 .input-content button:disabled {
@@ -178,14 +183,13 @@ p {
 .chat {
     padding: 1rem;
     margin-bottom: 1rem;
-    
+
     border: 1px solid var(--primary-dark);
     border-radius: 8px;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    
+    display: grid;
+    grid-template-columns: 36px 1fr;
+
     transition: 0.2s;
 }
 
@@ -197,15 +201,16 @@ p {
 #new-chat {
     border: none;
     color: white;
-    background: var(--accent);
+    background: black;
 }
 
 @keyframes sidebar {
     from {
         transform: translateX(-100%);
     }
+
     to {
         transform: translateX(0);
     }
-    
+
 }

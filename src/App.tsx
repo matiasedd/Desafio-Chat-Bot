@@ -1,5 +1,5 @@
 import React from 'react';
-import { MdArrowForward, MdPrint, MdMenu, MdAdd, MdMoreVert } from "react-icons/md";
+import { MdArrowForward, MdOutlineAttachFile, MdMenu, MdOutlineAccountCircle, MdChatBubbleOutline } from "react-icons/md";
 
 import './assets/global.css';
 
@@ -62,38 +62,36 @@ function App() {
     <div className="container">
       <div className="sidebar">
         <div className="chat" id="new-chat">
+          <MdArrowForward color="white" size={20} />
           <span>Nova conversa</span>
-          <MdAdd color="white" size={20} />
         </div>
-        <div className="chat">
-          <span>Conversa 1</span>
-          <MdMoreVert color="black" size={20} />
 
-        </div>
-        <div className="chat">
-          <span>Conversa 2</span>
-          <MdMoreVert color="black" size={20} />
-        </div>
-        <div className="chat">
-          <span>Conversa 3</span>
-          <MdMoreVert color="black" size={20} />
-        </div>
+        {[0, 0, 0, 0, 0].map((_, index) => (
+          <div className="chat">
+            <MdChatBubbleOutline color="#aaa" size={20} />
+            <span>Conversa {index + 1}</span>
+          </div>
+        ))}
       </div>
 
       <header>
         <button type="button">
           <MdMenu color="black" size={20} onClick={toggleSidebar} />
         </button>
+
+        <button type="button">
+          <MdOutlineAccountCircle color="black" size={20} onClick={toggleSidebar} />
+        </button>
       </header>
 
       <div className="input-container">
         <div className="input-content">
           <button type="button">
-            <MdPrint color="black" size={20} />
+            <MdOutlineAttachFile size={20} />
           </button>
           <input type="text" placeholder="Escreva sua mensagem" value={message} onChange={(event) => setMessage(event.target.value)} onKeyDown={(event) => event.key === 'Enter' && handleSendMessage(message)} />
-          <button id="send" disabled={isMessageEmpty} type="button" onClick={() => handleSendMessage(message)}>
-            <MdArrowForward color="white" size={20} />
+          <button disabled={isMessageEmpty} type="button" onClick={() => handleSendMessage(message)}>
+            <MdArrowForward size={20} />
           </button>
         </div>
       </div>
